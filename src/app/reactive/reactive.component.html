@@ -1,0 +1,25 @@
+<p>reactive works!</p>
+
+<!-- Reactive form  -->
+<!-- single control -->
+
+<!-- <input name="firstName" [formControl]="name"/> -->
+
+<form [formGroup]="loginGroup" (ngSubmit)="login()">
+    <input type="text" formControlName="username" placeholder="username"  />
+    <input type="password" formControlName="password"  placeholder="password" />
+    <br/>
+    <div formGroupName="address"> 
+        Address section here 
+        <input type="text" formControlName="street" placeholder="street"/> 
+        <input type="text" formControlName="city" placeholder="city"/> 
+        <input type="text" formControlName="pincode" placeholder="pincode"/> 
+    </div>
+    <div>
+        <button (click)="addElement()">+ Add</button>
+    </div>
+    <div *ngFor="let _ of logingroup.controls.names.controls; index as i">
+       <input type="text" [formControl]="i" placeholder="Enter a name"/>
+    </div>
+    <button type="submit">Login</button>
+</form>

@@ -1,0 +1,54 @@
+<p>My first manual component !! {{data}}</p>
+<app-cli (loadComplete)="handleChildLoad($event)"></app-cli>
+
+ 
+<br/>
+<input #source name="source" [(ngModel)]="name"/>
+<br/>
+<input value="{{source.value | lowercase | uppercase}}" name="dest">
+<input name="date" [(ngModel)]="dateValue" type="date"/>
+{{dateValue | date:'dd/MM-yyyy'}}
+<br/>
+<br/>
+decimal pipe here ----- 
+{{decimal | number:'7.4-4'}}
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+currency pipe here ----- 
+{{decimal | currency:'INR':symbol:'2.1-4'}}
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+JSON pipe here ----- 
+{{jsonObj | json}}
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+exp pipe here ----- 
+{{decimal | exp:'ip1':'1p2'}}
+<br/>
+<br/>
+<br/>
+<button (click)="onClick(source.value)"></button>
+
+<form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm.value)">
+    <div>
+        <label>username:</label><input type="text" name="username" ngModel placeholder="enter username">
+    </div>
+    <div>
+        <label>password:</label><input type="password" name="password" ngModel placeholder="enter password">
+    </div>
+    
+    <button type="submit">login</button>
+</form>
+

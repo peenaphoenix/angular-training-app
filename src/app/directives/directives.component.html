@@ -1,0 +1,25 @@
+<p [ngClass]="isBold?'bold':'normal'">directives works</p>
+
+<div  [style.backgroundColor]="isBold?'blue':'yellow'">directives works with style!</div>
+
+<button (click)="makeBold()"> Bold me ! </button>
+
+
+<!-- structural directives -->
+<div>
+    <div *ngIf="isTraining">
+        <input type="text" [(ngModel)]="addName"/> <button (click)="add()">Add</button>
+        <p [highlighter]="'red'">Angular training</p>
+        <p>Attendees are:</p>
+        <ul>
+            <li *ngFor="let name of names">{{name}}</li>
+        </ul>
+        <div [(ngSwitch)]="addName">
+            <p *ngSwitchCase="'pranav'" highlighter> Hey you are the trainer </p>
+            <p *ngSwitchCase="'gomathi'" highlighter> Hey you are the candidate </p>
+            <p *ngSwitchDefault highlighter> I dont know you </p>
+        </div>
+    </div>
+    <button (click)="enableTraining()"> enable traning</button>
+    
+</div> 
